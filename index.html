@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Desbloqueio por Data</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Etapas -->
+  <div id="tela1" class="tela">
+    <h2>Quando nos conhecemos?</h2>
+    <div class="data-display" id="data1">__/__/____</div>
+    <div class="teclado" id="teclado1"></div>
+    <div id="erro" class="erro"></div>
+  </div>
+
+  <div id="confirmacao1" class="tela confirmacao">✔️ Data correta!</div>
+
+  <div id="tela2" class="tela" style="display: none">
+    <h2>Quando começamos a namorar?</h2>
+    <div class="data-display" id="data2">__/__/____</div>
+    <div class="teclado" id="teclado2"></div>
+    <div id="erro" class="erro"></div>
+  </div>
+
+  <div id="confirmacao2" class="tela confirmacao">✔️ Data correta!</div>
+
+  <div id="tela3" class="tela" style="display: none">
+    <h2>Quando foi nosso primeiro beijo?</h2>
+    <div class="data-display" id="data3">__/__/____</div>
+    <div class="teclado" id="teclado3"></div>
+    <div id="erro" class="erro"></div>
+  </div>
+
+  <div id="confirmacao3" class="tela confirmacao">✔️ Acesso liberado!</div>
+
+    <!-- Conteúdo protegido -->
+  <div id="conteudo" style="display:none; margin-top: 80px;">
+    <!-- Cabeçalho fixo -->
+    <header id="cabecalho">
+      <h1>Larissa ❤ Enico</h1>
+    </header>
+
+    <div class="spotify">
+      <iframe
+        src = "https://open.spotify.com/embed/track/6qqrTXSdwiJaq8SO0X2lSe?si=HVNgwAKORuaF19gmf6PbDQ"
+        width="600"
+        height="120"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      ></iframe>
+    </div>
+
+    <!-- Carrossel de Imagens -->
+    <div id="carrossel">
+      <div class="carrossel">
+        <div class="imagens">
+          <img src="https://i.ibb.co/WNfMVKbs/Whats-App-Image-2025-05-12-at-11-02-53.jpg" alt="img1">
+          <img src="https://i.ibb.co/MyswWZfQ/Whats-App-Image-2025-05-12-at-11-02-54-1.jpg" alt="img2">
+          <img src="https://i.ibb.co/5gQ1WKJb/Whats-App-Image-2025-05-12-at-11-02-54-2.jpg" alt="img3">
+          <img src="https://i.ibb.co/cc2wkqG6/Whats-App-Image-2025-05-12-at-11-02-54.jpg" alt="img4">
+          <img src="https://i.ibb.co/5gFKNSgf/Whats-App-Image-2025-05-12-at-11-02-55.jpg" alt="img5">   
+        </div>
+        <div class="indicadores">
+          <span class="indicador" data-slide="0"></span>
+          <span class="indicador" data-slide="1"></span>
+          <span class="indicador" data-slide="2"></span>
+          <span class="indicador" data-slide="3"></span>
+          <span class="indicador" data-slide="4"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contador de Tempo -->
+    <div id="contador">
+      <h2>Nosso tempo juntos é</h2>
+      <p id="tempo"></p> <!-- Este é o local onde o tempo será exibido -->
+    </div>    
+
+    <!-- Mensagem Longa -->
+    <div id="mensagem">
+      <h2>Para a minha princesa</h2>
+      <p id="mensagem-texto">
+        <br>Bom, que você é a pessoa mais importante da minha vida, você já sabe.
+        <br>Você é a razão do meu sorriso, a razão de eu acordar todos os dias com vontade de viver.
+        <br>Você é a razão de eu querer ser uma pessoa melhor, melhor para você principalmente.
+        <br>Você é a razão de eu querer conquistar o mundo, para que você tenha tudo que sempre sonhou.
+        <br>Você é a razão de eu querer fazer tudo por você, para que você seja a mulher mais feliz do mundo.
+        <br>Você é a mulher que eu quero passar toda a minha vida ao seu lado.
+        <br>Você é tudo o que eu mais quero, tudo que eu sonhei, tudo que eu mais amo.
+        <br>Você é a mulher da minha vida, a mulher que eu vou amar para sempre.
+        <br>Eu amo você, e esse site é só uma pequena demonstração do quanto eu te amo.
+        <br>O texto não pode expressar tudo que eu sinto por você, não existe palavras no mundo, que possam expressar nem uma fração do que eu sinto por você.
+        <br>Eu te amo meu amor,
+        <br>mais que tudo,
+        <br>pra sempre.
+        <br>Amor da minha vida.
+        <br>
+        <br>Enrico
+      </p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #2e2e2e;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 50px; /* Adiciona espaço suficiente para o cabeçalho fixo */
+}
+
+.tela {
+  text-align: center;
+  padding: 30px;
+  width: 100%;
+  max-width: 600px; /* Alterado para 600px */
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tela:first-child {
+  display: flex;
+}
+
+.data-display {
+  font-size: 32px;
+  font-weight: bold;
+  background: #3b3b3b;
+  padding: 12px 24px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  color: #00bcd4;
+  letter-spacing: 3px;
+}
+
+.teclado {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  gap: 15px;
+  justify-content: center;
+}
+
+.teclado button {
+  width: 80px;
+  height: 80px;
+  font-size: 22px;
+  border-radius: 50%;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(145deg, #444, #555);
+  box-shadow: 2px 2px 8px #1a1a1a, -2px -2px 8px #3f3f3f;
+  transition: all 0.15s ease-in-out;
+}
+
+.teclado button:hover {
+  transform: scale(1.1);
+  background: linear-gradient(145deg, #00bcd4, #008c9e);
+  color: #000;
+}
+
+.confirmacao {
+  background-color: #a8ff9e;
+  color: #000;
+  font-size: 28px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-weight: bold;
+}
+
+.erro {
+  color: #ff4d4d;
+  height: 24px;
+  margin-top: 10px;
+}
+
+#cabecalho {
+  position: fixed; /* Torna o cabeçalho fixo no topo */
+  top: 0;          /* Alinha ao topo */
+  left: 0;         /* Alinha à esquerda */
+  width: 100%;     /* Ocupa toda a largura */
+  background-color: #333; /* Cor de fundo do cabeçalho */
+  color: #fff;    /* Cor do texto */
+  padding: 5px 10px; /* Menos espaçamento ao redor */
+  text-align: center; /* Centraliza o título */
+  font-size: 18px; /* Reduz o tamanho da fonte */
+  height: 50px; /* Define uma altura menor para o cabeçalho */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box; /* Garante que o padding não afete a altura */
+  z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+}
+
+#cabecalho h1 {
+  font-size: 20px; /* Tamanho da fonte menor para o título */
+  margin: 0; /* Remove margens do título */
+}
+
+#carrossel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.carrossel {
+  width: 100%;
+  max-width: 600px; /* Alterado para 600px */
+  height: 900px; /* <- Aumente esse valor */
+  overflow: hidden;
+  position: relative;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  background-color: #000;
+}
+
+.imagens {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.imagens img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Pode trocar por 'contain' se quiser ver tudo da imagem */
+  flex-shrink: 0;
+}
+
+.indicadores {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.indicador {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.indicador.ativo {
+  background-color: #00bcd4;
+}
+
+/* Estilo do contador de tempo */
+#contador {
+  font-family: Arial, sans-serif;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#contador h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#contador p {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#tempo {
+  transition: all 0.4s ease;
+}
+
+#contador {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #1f1f1f;
+  color: #00bcd4;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  margin-top: 40px;
+  width: 100%;
+  max-width: 600px; /* Alterado para 600px */
+  transition: all 0.3s ease-in-out;
+}
+
+#contador h2 {
+  font-size: 26px;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+#tempo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #00ffc8;
+  background-color: #333;
+  padding: 10px 15px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Estilo da mensagem longa */
+#mensagem {
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 20px;
+  margin: 30px 0;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px; /* Alterado para 600px */
+}
+
+#mensagem h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+#mensagem-texto {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555;
+  text-align: justify;
+}
+
+/* Tornar o layout mais vertical */
+#conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 600px; /* Alterado para 600px */
+}

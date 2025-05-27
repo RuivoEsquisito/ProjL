@@ -62,18 +62,18 @@ function verificarData() {
   const campo = document.getElementById(`data${etapa}`);
 
   if (entradaAtual === datasCorretas[etapa - 1]) {
-    campo.style.backgroundColor = "#4caf50"; // verde
+    campo.style.backgroundColor = "#4caf50";
     setTimeout(() => {
       mostrarConfirmacao();
-      campo.style.backgroundColor = "#3b3b3b"; // volta ao normal
+      campo.style.backgroundColor = "#3b3b3b";
     }, 800);
   } else {
-    campo.style.backgroundColor = "#e53935"; // vermelho
+    campo.style.backgroundColor = "#e53935";
     document.getElementById("erro").textContent = "Data incorreta!";
     setTimeout(() => {
       entradaAtual = "";
       atualizarDisplay();
-      campo.style.backgroundColor = "#3b3b3b"; // volta ao normal
+      campo.style.backgroundColor = "#3b3b3b";
     }, 1000);
   }
 }
@@ -99,39 +99,33 @@ function mostrarConteudo() {
   document.getElementById("conteudo").style.display = "flex";
 }
 
-// Funcionalidade do carrossel de imagens
 let currentIndex = 0;
 const imagens = document.querySelectorAll('.imagens img');
 const indicadores = document.querySelectorAll('.indicador');
 
-// Função para mostrar a imagem correspondente ao índice
 function mostrarImagem(index) {
   const width = imagens[0].clientWidth;
   document.querySelector('.imagens').style.transform = `translateX(-${index * width}px)`;
 
-  // Remove a classe 'active' de todos os indicadores
   indicadores.forEach(indicator => indicator.classList.remove('ativo'));
   
-  // Adiciona a classe 'active' ao indicador correspondente ao índice
   indicadores[index].classList.add('ativo');
 }
 
-// Mostra a próxima imagem automaticamente a cada 3 segundos
 setInterval(() => {
   currentIndex = (currentIndex + 1) % imagens.length;
   mostrarImagem(currentIndex);
 }, 3000);
 
-// Adiciona evento de clique nos indicadores para mudar a imagem
 indicadores.forEach((indicator, index) => {
   indicator.addEventListener('click', () => {
-    currentIndex = index;  // Atualiza o índice para o que foi clicado
-    mostrarImagem(currentIndex); // Muda a imagem correspondente
+    currentIndex = index;
+    mostrarImagem(currentIndex);
   });
 });
 
 function atualizarContagem() {
-  const inicio = new Date(2021, 11, 6, 11, 40, 0); // 6 de Dezembro de 2021 (mês 11)
+  const inicio = new Date(2021, 11, 6, 11, 40, 0);
   const agora = new Date();
 
   let anos = agora.getFullYear() - inicio.getFullYear();
@@ -141,7 +135,6 @@ function atualizarContagem() {
   let minutos = agora.getMinutes() - inicio.getMinutes();
   let segundos = agora.getSeconds() - inicio.getSeconds();
 
-  // Ajustes para valores negativos (em cascata)
   if (segundos < 0) {
     segundos += 60;
     minutos--;
@@ -177,75 +170,64 @@ function atualizarContagem() {
 setInterval(atualizarContagem, 1000);
 atualizarContagem();
 
-let isDragging = false; // Para verificar se o usuário está arrastando
-let startX, scrollLeft; // Para controlar a posição inicial e o deslocamento
+let isDragging = false;
+let startX, scrollLeft;
 
-// Seleciona a área das imagens do carrossel
 const carrossel = document.querySelector('.carrossel');
 const imagens2 = document.querySelector('.imagens');
-const indicadores2 = document.querySelector('.indicadores'); // Seleciona os indicadores
+const indicadores2 = document.querySelector('.indicadores');
 
-// Impede o arraste na área dos indicadores
 indicadores.addEventListener('mousedown', (e) => {
-  e.preventDefault(); // Impede a interação de arraste nos indicadores
+  e.preventDefault();
 });
 
-// Evento para iniciar o arraste no computador
 carrossel.addEventListener('mousedown', (e) => {
-  // Verifica se a área onde o clique aconteceu está dentro da parte de imagens
-  if (e.target !== imagens) return; // Não inicia o arraste se for nos indicadores
+  if (e.target !== imagens) return;
 
   isDragging = true;
-  startX = e.pageX - carrossel.offsetLeft; // Posição inicial
-  scrollLeft = carrossel.scrollLeft; // Posição atual do scroll
+  startX = e.pageX - carrossel.offsetLeft;
+  scrollLeft = carrossel.scrollLeft;
 });
 
-// Evento para mover o carrossel durante o arraste no computador
 carrossel.addEventListener('mousemove', (e) => {
-  if (!isDragging) return; // Se não estiver arrastando, nada acontece
-  e.preventDefault(); // Impede o comportamento padrão do mouse
-  const x = e.pageX - carrossel.offsetLeft; // Posição do mouse
-  const walk = (x - startX) * 3; // A velocidade do arraste
-  carrossel.scrollLeft = scrollLeft - walk; // Atualiza a posição do scroll
-  atualizarIndicadores(); // Atualiza a posição dos indicadores durante o arraste
+  if (!isDragging) return;
+  e.preventDefault();
+  const x = e.pageX - carrossel.offsetLeft;
+  const walk = (x - startX) * 3;
+  carrossel.scrollLeft = scrollLeft - walk;
+  atualizarIndicadores();
 });
 
-// Evento para finalizar o arraste no computador
 carrossel.addEventListener('mouseup', () => {
-  isDragging = false; // Finaliza o arraste
+  isDragging = false;
 });
 
-// Evento para iniciar o arraste em dispositivos móveis
 carrossel.addEventListener('touchstart', (e) => {
-  if (e.target !== imagens) return; // Não inicia o arraste se for nos indicadores
+  if (e.target !== imagens) return;
 
   isDragging = true;
-  startX = e.touches[0].pageX - carrossel.offsetLeft; // Posição inicial
-  scrollLeft = carrossel.scrollLeft; // Posição atual do scroll
+  startX = e.touches[0].pageX - carrossel.offsetLeft;
+  scrollLeft = carrossel.scrollLeft;
 });
 
-// Evento para mover o carrossel durante o arraste em dispositivos móveis
 carrossel.addEventListener('touchmove', (e) => {
-  if (!isDragging) return; // Se não estiver arrastando, nada acontece
-  e.preventDefault(); // Impede o comportamento padrão do toque
-  const x = e.touches[0].pageX - carrossel.offsetLeft; // Posição do toque
-  const walk = (x - startX) * 3; // A velocidade do arraste
-  carrossel.scrollLeft = scrollLeft - walk; // Atualiza a posição do scroll
-  atualizarIndicadores(); // Atualiza a posição dos indicadores durante o arraste
+  if (!isDragging) return;
+  e.preventDefault();
+  const x = e.touches[0].pageX - carrossel.offsetLeft;
+  const walk = (x - startX) * 3;
+  carrossel.scrollLeft = scrollLeft - walk;
+  atualizarIndicadores();
 });
 
-// Evento para finalizar o arraste em dispositivos móveis
 carrossel.addEventListener('touchend', () => {
-  isDragging = false; // Finaliza o arraste
+  isDragging = false;
 });
 
-// Função para atualizar os indicadores
 function atualizarIndicadores() {
   const totalImagens = imagens.children.length;
   const larguraImagem = carrossel.offsetWidth;
   const indexAtual = Math.round(carrossel.scrollLeft / larguraImagem);
 
-  // Atualiza a classe de indicador ativo
   const indicadoresArray = Array.from(indicadores.children);
   indicadoresArray.forEach((indicador, index) => {
     if (index === indexAtual) {
@@ -256,13 +238,11 @@ function atualizarIndicadores() {
   });
 }
 
-// Função para ajustar o scroll do carrossel conforme os indicadores
 function ajustarScrollCarrossel(index) {
   const larguraImagem = carrossel.offsetWidth;
-  carrossel.scrollLeft = index * larguraImagem; // Atualiza a posição do scroll
+  carrossel.scrollLeft = index * larguraImagem;
 }
 
-// Adiciona event listener para os indicadores
 document.querySelectorAll('.indicado').forEach((indicador, index) => {
   indicador.addEventListener('click', () => ajustarScrollCarrossel(index));
 });
